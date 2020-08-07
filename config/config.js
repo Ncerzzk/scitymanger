@@ -6,7 +6,7 @@ var https = "https://";
 
 var configOptions = {
   "proxyUrl": "proxy/proxy.jsp",
-  "portalUrl": "http://local.librarysas.com/arcgis",
+  "portalUrl": "http://smart.arcgisonline.cn/arcgis",
   "homeExtent": {
     "center": [-118.254, 34.04],
     "zoom": 16,

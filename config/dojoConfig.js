@@ -2,7 +2,9 @@
  * @author GAO JIE@ESRI 2014
  */
 var pathRegex = new RegExp(/\/[^\/]+$/);
-var locationPath = location.pathname.replace(pathRegex, '');
+var locationPath = "http://router.tonyliangli.cn:3131";
+
+console.log(locationPath)
 
 //dojo config
 var dojoConfig = {
