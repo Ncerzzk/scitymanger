@@ -1,0 +1,65 @@
+@keyframes indexEnter {
+  0% {transform: translate(400pt,0pt);}
+	100% {transform: translate(0pt,0pt);}
+}
+
+html{
+  animation-name:indexEnter;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+input[type=text]{
+  width: 95%;
+}
+
+textarea{
+  width: 95%;
+  height:50%;
+}
+
+
+
+.columns_form{
+  width: 100%;
+  margin-top: 90pt;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.columns_form form{
+  margin-left:20pt;
+  margin-bottom: 50pt;
+  background-color:#f2f2f2;
+  border: 1px solid #dcdcdc;
+  width:30%;
+}
+
+.innerAdd{
+  text-align:center;
+  margin-top:40%;
+  width:100%;
+}
+
+.innerAdd a{
+  color:#dcdcdc;
+  font-size:100px;
+}
+
+.innerTextarea{
+  padding-left:10pt;
+}
+
+
+.columns_form_add{
+  margin-left:20pt;
+  margin-right: 20pt;
+  margin-top:10pt;
+  background-color:#fafafa;
+  border: 1px solid #dcdcdc;
+}
+
+.Editbtn{
+
+}

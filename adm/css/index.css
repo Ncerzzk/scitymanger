@@ -1,0 +1,143 @@
+@keyframes indexEnter {
+  0% {transform: translate(0pt,100pt);}
+	100% {transform: translate(0pt,0pt);}
+}
+
+html{
+  animation-name:indexEnter;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+input[type=text]{
+  width:300px;
+}
+
+input[type=submit]{
+  width:100%;
+}
+
+input[type=submit]:hover{
+  background-color: #12171b;
+  color:#fff;
+}
+
+.columns_form figure{
+  margin-top: 70pt;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.index{
+    margin-left: 10pt;
+    margin-right: 25pt;
+    margin-bottom: 100pt;
+}
+
+.indexName{
+  margin-left:40pt;
+  margin-top: -55pt;
+  width:auto;
+  height:50pt;
+  background-color:#f2f2f2;
+  cursor: pointer;
+  /*timer*/
+  -webkit-transition: all 220ms cubic-bezier(.25,.8,.25,1);
+  -moz-transition: all 220ms ease-in-out;
+  transition: all 220ms ease-in-out;
+}
+
+.indexName:hover{
+  color:#ffffff;
+  background-color:#40e2ff;
+}
+
+
+.indexName a{
+  font-weight: bold;
+  color:#333;
+  font-size:12pt;
+  text-decoration:none;
+}
+
+.indexNameAddBlock{
+  margin-left:40pt;
+  margin-top: -55pt;
+  width:auto;
+  height:auto;
+  background-color:#f2f2f2;
+  cursor: pointer;
+  /*timer*/
+  -webkit-transition: all 220ms cubic-bezier(.25,.8,.25,1);
+  -moz-transition: all 220ms ease-in-out;
+  transition: all 220ms ease-in-out;
+}
+
+.indexNameAdd{
+  width: 120pt;
+  height: 50pt;
+  text-align: center;
+  padding-top: 10pt;
+}
+
+.indexNameAdd a{
+  margin-top:5pt;
+  font-size:28pt;
+  color:#dcdcdc;
+}
+
+
+
+.indexInput{
+  margin-top: -25pt;
+  margin-left: 10pt;
+  margin-right:10pt;
+  padding-bottom: 25pt;
+}
+
+.indexNameEdit{
+  text-align: center;
+  width: 30pt;
+  height: 30pt;
+  background:#e5e5e5;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  margin-left: 200pt;
+  margin-right: 10pt;
+  margin-top: -40pt;
+  /*timer*/
+  -webkit-transition: all 220ms cubic-bezier(.25,.8,.25,1);
+  -moz-transition: all 220ms ease-in-out;
+  transition: all 220ms ease-in-out;
+
+}
+
+.indexNameEdit:hover{
+
+  background:#40e2ff;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+
+}
+
+.indexNameEdit img{
+  width: 16pt;
+  height:16pt;
+  margin-top:6pt;
+}
+
+.indexContainer{
+  padding-left: 10pt;
+  padding-right: 10pt;
+  padding-top: 15pt;
+}
+
+.fEdit{
+  float:right;
+  margin-right:10pt;
+}
+
+.fEdit img{
+  width:20pt;
+}
