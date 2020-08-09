@@ -10,11 +10,14 @@ var seatPosi=[];
 var seatPosiName=[];
 var loadingState = 0;
 var searchRes = [];
+var camera;
 
 var r_temp_text_name = 0;
 var r_temp_line_name = 0;
 
 var obj_finish;
+var dobjects=Array();
+
 
 //Close guide window in user interface
 function closeGuide(){
@@ -88,6 +91,7 @@ var OBJLoader2Example = (function () {
 		this.scene = new THREE.Scene();
 		this.camera = new THREE.PerspectiveCamera( this.cameraDefaults.fov, this.aspectRatio, this.cameraDefaults.near, this.cameraDefaults.far );
 		this.resetCamera();
+		camera=this.camera;
 		//this.controls = new THREE.TrackballControls( this.camera, this.renderer.domElement );
 		this.controls = new THREE.OrbitControls( this.camera, this.renderer.domElement );
 		//this.controls.addEventListener( 'change', this.render ); // remove when using animation loop
@@ -673,6 +677,7 @@ var resizeWindow = function () {
 };
 
 //Start real-time render
+
 var render = function () {
 	
 	//Render controller
@@ -699,6 +704,8 @@ var render = function () {
 	var aCText3_intro = app.scene.getObjectByName("UPSU-intro");
 	var aCText4_intro = app.scene.getObjectByName("DENTAL-ACADEMY-intro");
 	var aCText5_intro = app.scene.getObjectByName("体育中心-intro");
+
+
 
 	
 	if(aCText5_intro){
@@ -872,3 +879,29 @@ function alertPopup(text){
 		$("#alert").css("display", "none");
 	}, 3720)
 }
+
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
+
+function onMouseClick(event){
+    //将鼠标点击位置的屏幕坐标转换成threejs中的标准坐标
+
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+    mouse.y = (event.clientY/window.innerHeight) *2 + 1
+ 
+    // 通过鼠标点的位置和当前相机的矩阵计算出raycaster
+    raycaster.setFromCamera( mouse,camera );
+
+    // 获取raycaster直线和所有模型相交的数组集合
+    var intersects = raycaster.intersectObjects(app.scene.children);
+    console.log(intersects);
+
+    for ( var i = 0; i < intersects.length; i++ ) {
+
+            intersects[ i ].object.material.color.set( 0xff0000 );
+
+        }
+    }
+
+window.addEventListener( 'click', onMouseClick, false );
+
