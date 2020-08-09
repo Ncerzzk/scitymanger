@@ -243,11 +243,12 @@
 				'近日，监测发现eclypsium发布了关于GRUB2本地代码执行漏洞（CVE-2020-10713）的风险通告。本地攻击者通过创建特制的grub.cfg配置文件利用该漏洞可执行任意代码。建议广大用户尽快升级版本，做好资产自查以及预防工作，以免遭受黑客攻击。',
 				'近日，Sonatype发布了关于Nexus Repository Manager远程代码执行漏洞（CVE-2020-15871）的通告，漏洞威胁较高，且影响范围较大。攻击者可利用该漏洞执行任意代码。建议广大用户尽快下载更新补丁，做好资产自查以及预防工作，以免遭受黑客攻击。'
 			]
-			$('#video_list > ul li').each(function(index, e) {
-				$(e).on('mouseover', function(){
-					if (index < msgs.length)
-					layer.msg(msgs[index]);
-				})
+			$('#video_list > ul li').each(function(i, e) {
+				$(e).on('mouseover', function() {
+					if (i < msgs.length) {
+						layer.msg(msgs[i]);
+					}
+				});
 			});
 		</script>
 	</body>
