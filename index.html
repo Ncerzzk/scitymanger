@@ -3,13 +3,7 @@
 	<head>
 		<meta charset=utf-8>
 		<title>智慧城市运营管理系统</title>
-		<link rel="stylesheet" type="text/css" href="style.css?v=1.5">
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-		<link rel="icon" type="image/png" href="images/logo.png">
-		<!-- Bootstrap core CSS -->
+
 		<link href="libs/bootstrap-3.3.4/css/bootstrap.css" rel="stylesheet">
 		<!-- font-awesome CSS -->
 		<link href="libs/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -19,23 +13,55 @@
 		<link href="libs/weather/screen.css"  rel="stylesheet">
 		<!-- <link rel="stylesheet" href="libs/xenon/css/xenon.css" type="text/css"> -->
 		<!-- scrollbar CSS -->
+
 		<link href="libs/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+		<script src="js/jq.min.js"></script>
+		<script src="layer/layer.js"></script>
 		<!-- arcgis CSS -->
-		<link href="https://js.arcgis.com/4.0/dijit/themes/claro/claro.css" rel="stylesheet"/>
-		<link href="https://js.arcgis.com/4.0/esri/css/main.css" rel="stylesheet"/>
 		<!-- Custom styles for this template -->
 		<link href="css/normalize.css" rel="stylesheet">
 		<link href="css/component.css" rel="stylesheet">
 		<link href="css/custom.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style.css?v=1.5">
+		<style type="text/css">
+			.icon {
+			   width: 3em; height: 3em;
+			   vertical-align: -0.15em;
+			   fill: currentColor;
+			   overflow: hidden;
+			}
+			.tri{
+				width: 0.5em; height: 1.5em;
+			   vertical-align: -0.18em;
+			   fill: currentColor;
+			   overflow: hidden;
+			}
+		</style>
+
+		<script src="https://at.alicdn.com/t/font_1994362_tuk9v57a6n8.js"></script>
 	</head>
 	<body>
-<!--		<div id="loading_screen">-->
-<!--			<div id="loading_screen_text"><a style="font-family:barlowbold">智能城市运营管理系统</a><a>&nbsp;&nbsp;|&nbsp;&nbsp;</a><a id="loading_ani" style="margin-left:4px;">加载中...</a></div>-->
-<!--		</div>-->
+		<nav class="navbar navbar-glass navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header" style="margin-left: 25%;">
+					<a class="navbar-brand"   href="index.html">
+						<img style="width:40px;" alt="logo" src="images/logo.png">
+						<div class="navbar-title">
+							<span class="navbar-brand-text" style="font-family:barlowbold;text-align: center;width: 100%;">山西综改示范区大数据智慧指挥运营中心</span>
+							<span class="navbar-brand-subtext" style="font-family:barlowbold;">城市公共安全</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</nav>
 
-<!--		<div id="glFullscreen">-->
-<!--				<canvas id="main"></canvas>-->
-<!--		</div>-->
+		<div id="loading_screen">
+			<div id="loading_screen_text"><a style="font-family:barlowbold">智能城市运营管理系统</a><a>&nbsp;&nbsp;&nbsp;&nbsp;</a><a id="loading_ani" style="margin-left:4px;">加载中...</a></div>
+		</div>
+
+		<div id="glFullscreen">
+				<canvas id="main"></canvas>
+		</div>
 		<div id="dat">
 	
 		</div>
@@ -43,152 +69,142 @@
 		<div id="alert">
 			<a id="alert_text"> </a>
 		</div>
-		<div class="top_bg">
-			<div id="logo">
-				<a style="font-family:barlowbold;">BUPT </a> <a>| 3D矢量地图</a>
-			</div>
-<!--
-			<div id="find_seat">
-				<a style="font-family:barlowbold;">GROUP SEAT FINDER: </a>
-				<select id="find_seat_value">
-					<option value="2">SEATS FOR 2</option>
-					<option value="3">SEATS FOR 3</option>
-					<option value="4">SEATS FOR 4</option>
-					<option value="5">SEATS FOR 5</option>
-					<option value="6">SEATS FOR 6</option>
-					<option value="10">TEST - 10</option>
-				</select>
 
-				<button id="searchBtn" onclick="searchSeat()">SEARCH</button>
-
-
-			</div>
--->
-		</div>
-		<!-- NAVBAR================================================== -->
-		<nav class="navbar navbar-glass navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="index.html">
-						<img alt="logo" src="images/logo.png">
-						<div class="navbar-title">
-							<span class="navbar-brand-text" style="font-family:barlowbold;">智慧城市综合运营管理中心</span>
-							<span class="navbar-brand-subtext" style="font-family:barlowbold;">Smart City Integrated Operations & Management Center</span>
+		<div id = "left">
+			<div id="case_statistics">
+				<a class="info_title">
+					<i>
+						<svg class="tri" aria-hidden="true">
+							<use xlink:href="#icon-sanjiaoxing"></use>
+						</svg>
+					</i>
+					安全事件统计</a>
+				<div class="content">
+					<div id="case_left_column"> 
+						<div class="case_block">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-shuji"></use>
+							</svg>
+							<div>16927</div>
+							<div class="case_block_name">事件总数</div>
 						</div>
-					</a>
-				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-left">
-						<li class="date-line">
-							<div class="navbar-title">
-								<span class="navbar-brand-subtext" id="date"></span>
-								<span class="navbar-brand-text" id="clock"></span>
-							</div>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right" id="exit">
-						<li id="weather">
-						</li>
-						<!-- <li>
-                            <div id="line">
-                            </div>
-                        </li> -->
-						<li id="TOC">
-						</li>
-						<!-- 按钮的分割线 -->
-						<!-- <li>
-                            <div id="line">
-                            </div>
-                        </li> -->
-						<li>
-							<a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!-- NAVBAR================================================== -->
-		<!-- MAIN CONTAIN================================================== -->
-		<div class="main-container">
-			<div id="loading_screen">
-				<div id="loading_screen_text"><a style="font-family:barlowbold">智能城市运营管理系统</a><a>&nbsp;&nbsp;|&nbsp;&nbsp;</a><a id="loading_ani" style="margin-left:4px;">加载中...</a></div>
-			</div>
-			<div id="glFullscreen">
-				<canvas id="main"></canvas>
-			</div>
-			<div id="map"></div>
-			<div id="leftBar" class="sideBar left opacity0">
-				<div class="bar-content" id="leftContent">
-				</div>
-				<span id="leftClickSpan" class="glyphicon glyphicon-option-vertical opration-handler" aria-hidden="true"></span>
-			</div>
-
-			<div id="RightBar" class="sideBar right opacity0">
-				<span id="rightClickSpan" class="glyphicon glyphicon-option-vertical opration-handler" aria-hidden="true"></span>
-				<div class="bar-content" id="rightContent">
-				</div>
-			</div>
-
-			<div id="BottomBar" class="bottomBar opacity0">
-				<span id="bottomClickSpan" class="glyphicon glyphicon-option-horizontal opration-handler" aria-hidden="true"></span>
-				<div class="bar-content-bottom" id="bottomContent">
-				</div>
-			</div>
-		</div>
-		<!-- MAIN CONTAIN================================================== -->
-
-		<!-- FOOTER================================================== -->
-		<footer class="footer"></footer>
-		<!-- FOOTER================================================== -->
-
-		<!-- PAGEOVERLAY================================================== -->
-		<div class="page-overlay"></div>
-		<!-- PAGEOVERLAY================================================== -->
-<!--
-
-
-		<div class="info">
+	
+						<div class="case_block">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-diannao"></use>
+							</svg>
+							<div>322</div>
+							<div class="case_block_name">恶意程序</div>
+						</div>
 					
+						<div class="case_block">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-xinwen"></use>
+							</svg>
+							<div>124</div>
+							<div class="case_block_name">弱点管理</div>
+						</div>
+	
+					</div>
+	
+					<div id="case_right_column" style="position:relative;">
+						<div class="case_block">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-caizhengshuju"></use>
+							</svg>
+							<div>12</div>
+							<div class="case_block_name">风险资产</div>
+						</div>
+	
+						<div class="case_block">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-wenjuan"></use>
+							</svg>
+							<div>226</div>
+							<div class="case_block_name">运维工单</div>
+						</div>
 					
-				<a>PC AVAILABLE:<br></a>
-				<a id="info_pcAva"> -- </a>
-				<a> / 367 Ava. </a><br><br><br>
-				<a>POPULATION:</a><br>
-				<a id="info_population"> 1024 </a><br><br><br>
-				<a onclick="advance_mylocation()">RECOMMEND:</a><br>
-				<a>TO AREA A</a>
-				
-				<div id="feedback"></div>
-		</div>
-
-		<div id="action">
-			<button onclick="cameraRSF()" id="cameraRBtn">Stop Camera 360°</button>
-		</div>
-
-				<div id="guide" class="guide">
-			<div id="guide_text">
-				<a style="font-size:16px;font-family:barlowbold;">系统使用导航</a><br><br>
-				<div class="g_m_g">
-					<div class="g_m_g_s"><img src="./asset/img/mouse_left.png"><br><a>Move Around</a></div>
-					<div class="g_m_g_s"><img src="./asset/img/mouse_mid.png"><br><a>Zoom In/Out</a></div>
-					<div class="g_m_g_s"><img src="./asset/img/mouse_right.png"><br><a>Move Focus</a></div>
+						<div class="case_block">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-gongkai"></use>
+							</svg>
+							<div>32</div>
+							<div class="case_block_name">事件通报</div>
+						</div>
+					</div>
 				</div>
-				<br>
-				<div class="g_m_g">
-						<div class="g_m_g_s"><img src="./asset/img/touch_move.png" width=40px><br><a>Move Around</a></div>
-						<div class="g_m_g_s"><img src="./asset/img/touch_zoom.png" width=40px><br><a>Zoom In/Out</a></div>
-						<div class="g_m_g_s"><img src="./asset/img/touch_archor.png" width=40px><br><a>Move Focus</a></div>
-				</div>
-				<br>
-				<div class="g_s_g">
-					<div class="g_s_g_s"><div class="green_screen"><div class="g_m_ava_text"><a>Avaliable</a></div></div></div>
-					<div class="g_s_g_s"><div class="red_screen"><div class="g_m_ava_text"><a>Unavaliable</a></div></div></div>
+
+			</div>
+
+
+
+			<div id="public">
+				<a  class="info_title">
+					<i>
+						<svg class="tri" aria-hidden="true">
+							<use xlink:href="#icon-sanjiaoxing"></use>
+						</svg>
+					</i>
+					舆情预警</a>
+				<div>
+					<img id = "yq" src="yuqing.png">
 				</div>
 			</div>
-			<div id="guide_close" onclick="closeGuide()"><div class="close"> </div></div>
-			<div id="guide_line"> </div>
+			
 		</div>
--->
+
+
+		<div id="right">
+			<div id="warning">
+				<a class="info_title">
+					<i>
+						<svg class="tri" aria-hidden="true">
+							<use xlink:href="#icon-sanjiaoxing"></use>
+						</svg>
+					</i>
+
+					安全预警</a>
+				<div id="video_list">
+					<ul style="color:#fff;">
+						<li>风险资产：183.221.19.32,低风险</li>
+						<li style="color: #ffe820">弱点增加：183.221.91.56,中,恶意程序,3</li>
+						<li style="color: #ff2b1c">风险资产：183.221.78.00,失陷</li>
+						<li style="color: #b313ff">弱点增加：183.221.06.23,低,安全隐患,1</li>
+					</ul>
+				</div>
+			</div>	
+
+		
+			<div id="flowrate">
+				<a class="info_title">
+					<i>
+						<svg class="tri" aria-hidden="true">
+							<use xlink:href="#icon-sanjiaoxing"></use>
+						</svg>
+					</i>
+
+					数据流量检测</a>
+				<div>
+					<img style="width:100%;" src="data.png">
+				</div>
+			</div>	
+
+			<div id="flowrate">
+				<a class="info_title">
+					<i>
+						<svg class="tri" aria-hidden="true">
+							<use xlink:href="#icon-sanjiaoxing"></use>
+						</svg>
+					</i>
+
+					当前位置</a>
+				<div>
+					<img style="width:100%;" src="map.jpg">
+				</div>
+			</div>	
+		</div>
+
+
 
 		<div id="advance_settings">
 			<div id="as_input">
@@ -220,29 +236,19 @@
 		<script src="js/loaders/OBJLoader2.js"></script>
 		<script src="js/main.js?v=33"></script>
 
-
-		<!-- MAIN CORE JAVASCRIPT================================================== -->
-		<script src="libs/jquery-1.11.3.min.js"></script>
-		<script src="libs/AnimatedLetters/segment.min.js"></script>
-		<script src="libs/AnimatedLetters/d3-ease.v0.6.js"></script>
-		<script src="libs/AnimatedLetters/letters.js"></script>
-		<script src="libs/echarts.min.js"></script>
-		<script src="libs/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-		<script src="config/dojoConfig.js"></script>
-		<script src="config/config.js"></script>
-		<script src="libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
-		<script src="libs/xenon/js/joinable.js"></script>
-		<script src="libs/devexpress-web-14.1/js/globalize.min.js"></script>
-		<script src="libs/devexpress-web-14.1/js/dx.chartjs.js"></script>
-		<script src="libs/vTicker.min.js"></script>
-		<!-- <script type="text/javascript" src="js/widgets/layerList.js"></script> -->
-		<script src="https://js.arcgis.com/4.0/init.js"></script>
-
-		<script type="text/javascript">
-			require(["application/main"], function(main) {
-				window.main = new main(configOptions);
+		<script>
+			msgs = [
+				'低风险，未发现攻击。',
+				'近日，监测发现Kibana发布了2个重要漏洞的安全更新，Kibana拒绝服务和跨站脚本漏洞，CVE编号分别为CVE-2020-7016、CVE-2020-7017，攻击者可利用漏洞导致拒绝服务和跨站脚本攻击。',
+				'近日，监测发现eclypsium发布了关于GRUB2本地代码执行漏洞（CVE-2020-10713）的风险通告。本地攻击者通过创建特制的grub.cfg配置文件利用该漏洞可执行任意代码。建议广大用户尽快升级版本，做好资产自查以及预防工作，以免遭受黑客攻击。',
+				'近日，Sonatype发布了关于Nexus Repository Manager远程代码执行漏洞（CVE-2020-15871）的通告，漏洞威胁较高，且影响范围较大。攻击者可利用该漏洞执行任意代码。建议广大用户尽快下载更新补丁，做好资产自查以及预防工作，以免遭受黑客攻击。'
+			]
+			$('#video_list > ul li').each(function(index, e) {
+				$(e).on('mouseover', function(){
+					if (index < msgs.length)
+					layer.msg(msgs[index]);
+				})
 			});
 		</script>
-		<!-- MAIN CORE JAVASCRIPT================================================== -->
 	</body>
 </html>
