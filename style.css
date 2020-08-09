@@ -454,7 +454,7 @@ transform: rotate(-45deg);
     height:240px;
     width:440px; 
     position: absolute;
-    top:100px;
+    top:70px;
     left:20px;
     text-align: left;
 }
@@ -462,7 +462,7 @@ transform: rotate(-45deg);
 #right {
     position: absolute;
     right:0px;
-    top:100px;
+    top:70px;
     height:240px;
     width:220px; 
     text-align: left;
@@ -500,6 +500,9 @@ transform: rotate(-45deg);
     margin-right: 20px;
 }
 
+.info_title :hover{
+    font-size: 30px;
+}
 
 a{text-decoration:none}
 
