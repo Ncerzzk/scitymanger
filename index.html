@@ -13,7 +13,10 @@
 		<link href="libs/weather/screen.css"  rel="stylesheet">
 		<!-- <link rel="stylesheet" href="libs/xenon/css/xenon.css" type="text/css"> -->
 		<!-- scrollbar CSS -->
+
 		<link href="libs/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+		<script src="js/jq.min.js"></script>
+		<script src="layer/layer.js"></script>
 		<!-- arcgis CSS -->
 		<!-- Custom styles for this template -->
 		<link href="css/normalize.css" rel="stylesheet">
@@ -27,11 +30,6 @@
 			   fill: currentColor;
 			   overflow: hidden;
 			}
-
-			.icon :hover{
-				width:4em;height:4em;
-			}
-
 			.tri{
 				width: 0.5em; height: 1.5em;
 			   vertical-align: -0.18em;
@@ -168,7 +166,7 @@
 					安全预警</a>
 				<div id="video_list">
 					<ul style="color:#fff;">
-						<li>风险资产：183.221.19.32,低风险</li>
+						<li><a id="msg">风险资产：183.221.19.32,低风险</a></li>
 						<li>弱点增加：183.221.91.56,中,恶意程序,3</li>
 						<li>风险资产：183.221.78.00,失陷</li>
 						<li>弱点增加：183.221.06.23,低,安全隐患,1</li>
@@ -237,4 +235,10 @@
 		<script src="js/loaders/OBJLoader.js"></script>
 		<script src="js/loaders/OBJLoader2.js"></script>
 		<script src="js/main.js?v=33"></script></script>
+
+		<script>
+			$('#msg').on('click',function(){
+				layer.msg('hello');
+			})
+		</script>
 </html>
