@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>山西综改示范区大数据智慧指挥运营中心</title>
+	<link href="libs/bootstrap-3.3.4/css/bootstrap.css" rel="stylesheet">
+	<link href="Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+	<link href="utils.css" rel="stylesheet">
+	<link href="examples/css/pretty.css" rel="stylesheet">
+	<link href="examples/js/layui-v2.5.5/css/layui.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="css/normalize.css" rel="stylesheet">
+	<link href="css/component.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css?v=1.5">
+	<style type="text/css">
+		.icon {
+			width: 3em; height: 3em;
+			vertical-align: -0.15em;
+			fill: currentColor;
+			overflow: hidden;
+		}
+		.tri{
+			width: 0.5em; height: 1.5em;
+			vertical-align: -0.18em;
+			fill: currentColor;
+			overflow: hidden;
+		}
+	</style>
+	<script src="examples/js/config.js"></script>
+	<script src="examples/js/heatmap.min.js"></script>
+	<script src="examples/js/dat.gui.min.js"></script>
+	<script src="examples/js/layui-v2.5.5/layui.all.js"></script>
+	<script src="examples/js/jquery.min.js"></script>
+	<script src="Build/Cesium/Cesium.js"></script>
+	<script src="log.js"></script>
+	<script src="libs/layer/layer.js"></script>
+	<script src="https://at.alicdn.com/t/font_1994362_tuk9v57a6n8.js"></script>
+	<style>
+		body {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			overflow: hidden;
+			padding: 0;
+			background: #000;
+		}
+
+		.dg.main.a {
+			position: absolute;
+			left: 2px;
+		}
+
+		.layui-layer {
+			background-color: #222c;
+			box-shadow: inset 0 0 15px 4px #00bcd4;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="cesiumContainer"></div>
+	<div class="heatmap" style="overflow: hidden; width: 840px;height: 400px;">
+		<div class="heatmap-canvas" width="50%" height="25%">
+		</div>
+	</div>
+	<nav class="navbar navbar-glass navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header" style="margin-left: 35%;">
+				<a class="navbar-brand"   href="index.html">
+					<img style="width:40px;" alt="logo" src="images/logo.png">
+					<div class="navbar-title">
+						<span class="navbar-brand-text" style="font-family:barlowbold;text-align: center;width: 100%;">山西综改示范区大数据智慧指挥运营中心</span>
+						<span class="navbar-brand-subtext" style="font-family:barlowbold;">城市公共安全</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</nav>
+	<div id = "left">
+		<div id="case_statistics" style="margin-left: 10px">
+			<a class="info_title">
+				<i>
+					<svg class="tri" aria-hidden="true">
+						<use xlink:href="#icon-sanjiaoxing"></use>
+					</svg>
+				</i>
+				安全事件统计</a>
+			<div class="content">
+				<div id="case_left_column">
+					<div class="case_block">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-shuji"></use>
+						</svg>
+						<div>16927</div>
+						<div class="case_block_name">事件总数</div>
+					</div>
+
+					<div class="case_block">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-diannao"></use>
+						</svg>
+						<div>322</div>
+						<div class="case_block_name">恶意程序</div>
+					</div>
+
+					<div class="case_block">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-xinwen"></use>
+						</svg>
+						<div>124</div>
+						<div class="case_block_name">弱点管理</div>
+					</div>
+
+				</div>
+
+				<div id="case_right_column" style="position:relative;">
+					<div class="case_block">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-caizhengshuju"></use>
+						</svg>
+						<div>12</div>
+						<div class="case_block_name">风险资产</div>
+					</div>
+
+					<div class="case_block">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-wenjuan"></use>
+						</svg>
+						<div>226</div>
+						<div class="case_block_name">运维工单</div>
+					</div>
+
+					<div class="case_block">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-gongkai"></use>
+						</svg>
+						<div>32</div>
+						<div class="case_block_name">事件通报</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="public" style="margin-left: 10px">
+			<a  class="info_title">
+				<i>
+					<svg class="tri" aria-hidden="true">
+						<use xlink:href="#icon-sanjiaoxing"></use>
+					</svg>
+				</i>
+				舆情预警</a>
+			<div>
+				<img id = "yq" src="yuqing.png">
+			</div>
+		</div>
+	</div>
+	<div id="right">
+		<div id="warning" style="margin-left: 10px">
+			<a class="info_title">
+				<i>
+					<svg class="tri" aria-hidden="true">
+						<use xlink:href="#icon-sanjiaoxing"></use>
+					</svg>
+				</i>
+
+				安全预警</a>
+			<div id="video_list">
+				<ul style="color:#fff;">
+					<li>风险资产：183.221.19.32,低风险</li>
+					<li style="color: #ffe820">弱点增加：183.221.91.56,中,恶意程序,3</li>
+					<li style="color: #ff2b1c">风险资产：183.221.78.00,失陷</li>
+					<li style="color: #b313ff">弱点增加：183.221.06.23,低,安全隐患,1</li>
+				</ul>
+			</div>
+		</div>
+		<div id="flowrate" style="margin-left: 10px">
+			<a class="info_title">
+				<i>
+					<svg class="tri" aria-hidden="true">
+						<use xlink:href="#icon-sanjiaoxing"></use>
+					</svg>
+				</i>
+
+				数据流量检测</a>
+			<div>
+				<img style="width:100%;" src="data.png">
+			</div>
+		</div>
+
+		<div id="flowrate"  style="margin-left: 10px">
+			<a class="info_title">
+				<i>
+					<svg class="tri" aria-hidden="true">
+						<use xlink:href="#icon-sanjiaoxing"></use>
+					</svg>
+				</i>
+
+				当前位置</a>
+			<div>
+				<img style="width:100%;" src="map.jpg">
+			</div>
+		</div>
+	</div>
+	<script src="city2.js"></script>
+	<script>
+		msgs = [
+			'低风险，未发现攻击。',
+			'近日，监测发现Kibana发布了2个重要漏洞的安全更新，Kibana拒绝服务和跨站脚本漏洞，CVE编号分别为CVE-2020-7016、CVE-2020-7017，攻击者可利用漏洞导致拒绝服务和跨站脚本攻击。',
+			'近日，监测发现eclypsium发布了关于GRUB2本地代码执行漏洞（CVE-2020-10713）的风险通告。本地攻击者通过创建特制的grub.cfg配置文件利用该漏洞可执行任意代码。建议广大用户尽快升级版本，做好资产自查以及预防工作，以免遭受黑客攻击。',
+			'近日，Sonatype发布了关于Nexus Repository Manager远程代码执行漏洞（CVE-2020-15871）的通告，漏洞威胁较高，且影响范围较大。攻击者可利用该漏洞执行任意代码。建议广大用户尽快下载更新补丁，做好资产自查以及预防工作，以免遭受黑客攻击。'
+		]
+		$('#video_list > ul li').each(function(i, e) {
+			$(e).on('mouseover', function() {
+				if (i < msgs.length) {
+					layer.msg(msgs[i]);
+				}
+			});
+		});
+	</script>
+	<style>
+		#navi {
+			width:200px !important;
+			position: absolute;
+			left: 30%;
+			top: 100px;
+		}
+		#navi2 {
+			width:200px !important;
+			position: absolute;
+			left: 45%;
+			top: 100px;
+
+		}
+		#navi3 {
+			width:200px !important;
+			position: absolute;
+			left: 60%;
+			top: 100px;
+		}
+		#navi3:hover{
+			color: white;
+		}
+		.close-button{
+			display: none;
+		}
+		.dg li.title{
+			min-height: 30px;
+			color: #00bcd4;
+			box-shadow:inset 1px 1px 6px 3px;
+		}
+		.cesium-viewer-navigationContainer {
+			top: 100px;
+			right: 240px
+		}
+	</style>
+</body>
+
+</html>
